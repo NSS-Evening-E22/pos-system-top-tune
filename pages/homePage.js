@@ -5,12 +5,12 @@ const homePage = (user) => {
   console.warn(user);
   const domString = `<h1 id="display-3">WELCOME ${user.displayName} </h1>
   <br>
-  <h3 id="display-4">SIGN IN TO GET STARTED!</h3>
-  <br>
   <div id="login-button"></div>
   <br>
   <button id="viewOrder-btn">View Orders</button>
+  <br>
   <button id="createOrder-btn">Create New Order</button>
+  <br>
   <button id="viewRev-btn">View Revenue</button>
   `;
   renderToDOM('#main-container', domString);
