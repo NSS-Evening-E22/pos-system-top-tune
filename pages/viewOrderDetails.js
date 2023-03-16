@@ -3,7 +3,6 @@ import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 import showItems from './items';
 
-// page to show item cards and total price plus add new item buttons and go to payment
 const viewOrderDetails = (obj) => {
   clearDom();
   const domString = `
