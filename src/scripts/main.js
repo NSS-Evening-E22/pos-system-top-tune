@@ -8,7 +8,10 @@ const init = () => {
   document.querySelector('#app').innerHTML = `
   <div style="text-align:center">
   <h1>Hip Hop, Pizza, and Wangs</h1>
+  <p style="background-image: url('');">
+  <image src="https://github.com/NSS-Evening-E22/pos-system-top-tune/raw/main/instructions/hhpw-record.png" style="height:300px;"></image></div>`;
   <image src=https://github.com/NSS-Evening-E22/pos-system-top-tune/blob/b5d035e3cfea4e826aa463653a964bc87c481521/instructions/hhpw-record.png style="height:300px;"></image></div>`;
+
 
   // USE WITH FIREBASE AUTH
   checkLoginStatus();
