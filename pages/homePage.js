@@ -7,11 +7,11 @@ const homePage = (user) => {
   <br>
   <div id="login-button"></div>
   <br>
-  <button id="viewOrder-btn">View Orders</button>
+  <button id="viewOrder-btn" class="btn btn-success">View Orders</button>
   <br>
-  <button id="createOrder-btn">Create New Order</button>
+  <button id="createOrder-btn" class="btn btn-info">Create New Order</button>
   <br>
-  <button id="viewRev-btn">View Revenue</button>
+  <button id="viewRev-btn" class="btn btn-warning">View Revenue</button>
   `;
   renderToDOM('#main-container', domString);
 };
