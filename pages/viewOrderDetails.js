@@ -7,7 +7,7 @@ const viewOrderDetails = (obj) => {
   clearDom();
   const domString = `
   <div class="text-white details">
-     <h5>${obj.itemObject.item_name}</h5>
+     <h5>${obj.itemObject.itemName}</h5>
      PRICE: <h6 ${obj.itemObject.price}"></h6>
      <div class="mt-1 d-flex flex-wrap">
        <div class="d-flex flex-column">
