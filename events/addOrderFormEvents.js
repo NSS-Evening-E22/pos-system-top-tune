@@ -2,7 +2,7 @@ import { getSingleOrder } from '../api/orderData';
 import addOrderForm from '../components/forms/addOrderForm';
 
 const addOrderformEvents = () => {
-  document.querySelector('#main-container').addEventListener('submit', (e) => {
+  document.querySelector('#main-container').addEventListener('click', (e) => {
     e.preventDefault();
     // EVENT FOR UPDATING ORDER
     if (e.target.id.includes('update-order')) {
