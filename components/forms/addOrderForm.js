@@ -1,9 +1,9 @@
 import clearDom from '../../utils/clearDom';
-import renderToDom from '../..utils/rederToDom';
+import renderToDOM from '../../utils/renderToDom';
 
 const addOrderForm = (obj = {}) => {
-    clearDom();
-    const domString = `
+  clearDom();
+  const domString = `
       <form id="${obj.firebaseKey ? `update-order--${obj.firebaseKey}` : 'submit-orderForm'}" class="mb-4">
         <div class="form-group">
           <label for="title">Order Name</label>
@@ -28,8 +28,8 @@ const addOrderForm = (obj = {}) => {
         </div>
         <button type="submit" class="btn btn-primary mt-3">Creat/Edit Order</button>
       </form>`;
-  
-    renderToDom('#form-container', domString);
-  };
-  
-  export default addOrderForm;
+
+  renderToDOM('#form-container', domString);
+};
+
+export default addOrderForm;
