@@ -11,6 +11,7 @@ const init = () => {
   <p style="background-image: url('');">
   <image src="https://github.com/NSS-Evening-E22/pos-system-top-tune/raw/main/instructions/hhpw-record.png" style="height:300px;"></image></div>`;
 
+
   // USE WITH FIREBASE AUTH
   checkLoginStatus();
 };
