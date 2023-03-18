@@ -7,16 +7,7 @@ const viewOrderDetails = (obj) => {
   clearDom();
   const domString = `
   <div class="text-white details">
-     <h5>${obj.itemObject.itemName}</h5>
-     PRICE: <h6 ${obj.itemObject.price}"></h6>
-     <div class="mt-1 d-flex flex-wrap">
-       <div class="d-flex flex-column">
-         <div class="mt-5">
-           <i id="edit-item-btn--${obj.itemObject.firebaseKey}" class="btn btn-info"></i>
-           <i id="delete-item-btn--${obj.itemObject.firebaseKey}" class="btn btn-danger"></i>
-         </div>
-       </div>
-    </div>    
+  <h5 id="orderTotal">Total: </h5>
   </div>`;
 
   const btnString = '<button class="btn btn-success btn-lg mb-4" id="add-item-btn">Add Item</button>';

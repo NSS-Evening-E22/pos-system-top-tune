@@ -3,7 +3,7 @@ import { deleteSingleItem, getOrderItems } from './itemData';
 
 const getOrderDetails = (firebaseKey) => new Promise((resolve, reject) => {
   getSingleOrder(firebaseKey).then((orderObject) => {
-    getOrderItems(orderObject.firebaseKey)
+    getOrderItems(orderObject.orderId)
       .then((orderItemsArray) => resolve({ orderObject, orderItemsArray }));
   }).catch(reject);
 });
