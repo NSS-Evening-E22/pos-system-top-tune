@@ -1,4 +1,4 @@
-import renderToDOM from '../utils/renderToDom';
+import renderToDom from '../utils/renderToDom';
 // import loginButton from '../components/Buttons/loginButton';
 
 const homePage = (user) => {
@@ -11,7 +11,7 @@ const homePage = (user) => {
   <br>
   <button id="viewRev-btn" class="btn btn-warning">View Revenue</button></div>
   `;
-  renderToDOM('#main-container', domString);
+  renderToDom('#home-container', domString);
 };
 
 export default homePage;

@@ -8,23 +8,24 @@ const emptyOrders = () => {
 
 const showOrders = (array) => {
   clearDom();
+  console.warn('test', array);
   let domString = '';
   array.forEach((order) => {
     domString += `
       <div class="card d-flex" style="width: 19rem,">
         <div class="card-body">
-          <h2 class="card-title">${order.name}</h2>
+          <h2 class="card-title">${order.orderName}</h2>
           <br>
-          <p class="card-status">${order.status}</p>
+          <p class="card-status">Order Status: ${order.orderStatus}</p>
           <br>
-          <p class="card-number">${order.number}</p>
+          <p class="card-number">Phone Number: ${order.phone}</p>
           <br> 
-          <p class="card-email>${order.email}</p>
+          <p class="card-email">Email: ${order.email}</p>
           <br>
-          <p class="card-type">Order Type:${order.type}</p>
+          <p class="card-type">Order Type: ${order.orderType}</p>
         </div>
           <div id="cards-btn">
-            <button class="btn btn-success fas fa-eye" id="view-order-btn--${order.firebaseKey}">Details</button>
+            <button class="btn btn-success" id="view-order-details-btn--${order.firebaseKey}">Details</button>
             <button id="edit-order-btn--${order.firebaseKey}" class="btn btn-info">Edit</i>
             <button id="delete-order-btn--${order.firebaseKey}" class="btn btn-danger">Delete</button>
           </div>

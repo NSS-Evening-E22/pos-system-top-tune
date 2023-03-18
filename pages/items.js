@@ -1,21 +1,23 @@
 import clearDom from '../utils/clearDom';
-import renderToDOM from '../utils/renderToDom';
+import renderToDom from '../utils/renderToDom';
 
-const viewOrderItems = (obj) => {
+const showItems = (array) => {
   clearDom();
-
-  const domString = `
+  console.warn('test', array);
+  let domString = '';
+  array.forEach((item) => {
+    domString += `
   <div class="card w-75 mb-3">
   <div class="card-body">
-    <h5 class="card-title">Item Name: ${obj.itemName}</h5>
-    <p class="card-text">Price :$ ${obj.price}.</p>
-    <a href="#"  id="edit-item-btn" class="btn btn-primary">Edit Item</a>
-    <a href="#" id="delete-item-btn" class="btn btn-danger">Delete Item</a>
+    <h5 class="card-title">Item Name: ${item.itemName}</h5>
+    <p class="card-text">Price :$ ${item.price}.</p>
+    <i id="edit-item-btn--${item.itemObject.firebaseKey}" class="btn btn-info"></i>
+    <i id="delete-item-btn--${item.itemObject.firebaseKey}" class="btn btn-danger"></i>
   </div>
 </div>
  `;
 
-  renderToDOM('#view-details', domString);
+    renderToDom('#view-details', domString);
+  });
 };
-
-export default viewOrderItems;
+export default showItems;
