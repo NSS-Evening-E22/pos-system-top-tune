@@ -1,8 +1,10 @@
-import { getSingleOrder, getOrders, updateOrder,createOrder } from '../api/orderData';
+import {
+  getSingleOrder, getOrders, updateOrder, createOrder
+} from '../api/orderData';
 import addOrderForm from '../components/forms/addOrderForm';
 import { showOrders } from '../pages/orders';
 
-const addOrderformEvents = () => {
+const addOrderFormEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
     e.preventDefault();
     // ADD ORDER
@@ -11,19 +13,18 @@ const addOrderformEvents = () => {
         orderName: document.querySelector('#order-name').value,
         phone: document.querySelector('#phone').value,
         email: document.querySelector('#email').value,
-        language: document.querySelector('#orderType-select-input').value,
+        orderType: document.querySelector('#orderType-select-input').value,
+        orderStatus: false,
+        timestamp: new Date(Date.now()).toLocaleString()
       };
       createOrder(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateOrder(patchPayload).then(() => {
-          getOrders().then(showCards);
+          getOrders().then(showOrders);
         });
       });
     }
 
-
-
-    
     // EVENT FOR UPDATING ORDER
     if (e.target.id.includes('update-order')) {
       console.warn('update order');
@@ -34,10 +35,10 @@ const addOrderformEvents = () => {
           phone: document.querySelector('#phone').value,
           email: document.querySelector('#email').value,
           firebaseKey,
-          time: currentTime,
+          timestamp: new Date(Date.now()).toLocaleString()
         };
         updateOrder(payload).then(() => {
-          getOrders( ).then(showOrders);
+          getOrders().then(showOrders);
         });
 
         getSingleOrder(firebaseKey).then((entryObj) => addOrderForm(entryObj));
@@ -46,4 +47,4 @@ const addOrderformEvents = () => {
   });
 };
 
-export default addOrderformEvents;
+export default addOrderFormEvents;
