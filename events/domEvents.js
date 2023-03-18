@@ -26,6 +26,15 @@ const domEvents = () => {
       }
     }
   });
+  // click event for editing item
+  document.querySelector('#main-container').addEventListener('click', (e) => {
+    if (e.target.id.includes('edit-item-btn')) {
+      console.warn('EDIT ITEM', e.target.id);
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleItem(firebaseKey).then((itemObj) => addItemForm(itemObj));
+    }
+  });
+
 };
 
 export default domEvents;
