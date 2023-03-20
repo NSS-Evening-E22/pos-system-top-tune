@@ -1,6 +1,6 @@
 import firebaseConfig from './apiKeys';
 
-const endpoint = firebaseConfig;
+const endpoint = firebaseConfig.databaseURL;
 
 // get order items
 const getOrderItems = (firebaseKey) => new Promise((resolve, reject) => {
