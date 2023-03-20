@@ -11,13 +11,13 @@ const showItems = (array) => {
   <div class="card-body">
     <h5 class="card-title">Item Name: ${item.itemName}</h5>
     <p class="card-text">Price :$ ${item.price}.</p>
-    <i id="edit-item-btn--${item.itemObject.firebaseKey}" class="btn btn-info"></i>
-    <i id="delete-item-btn--${item.itemObject.firebaseKey}" class="btn btn-danger"></i>
+    <i id="edit-item-btn--${item.firebaseKey}" class="btn btn-info"></i>
+    <i id="delete-item-btn--${item.firebaseKey}" class="btn btn-danger"></i>
   </div>
 </div>
  `;
 
-    renderToDom('#view-details', domString);
+    renderToDom('#order-cards', domString);
   });
 };
 export default showItems;
