@@ -5,28 +5,30 @@ import showItems from './items';
 
 const viewOrderDetails = (obj) => {
   clearDom();
-  const domString = `
+  console.warn('this is the items object', obj);
+  console.warn('test key', obj.orderObject.firebaseKey);
+  const arr = [];
+
+  obj.orderItemsArray.forEach((item) => arr.push(item.price));
+
+  console.warn('this is the arr', arr);
+  function sum() {
+    if (arr.length === 0) {
+      return 0;
+    }
+    return arr.reduce((a, b) => a + b);
+  }
+
+  const totalString = `
   <div class="text-white details">
-     <h5>${obj.itemObject.itemName}</h5>
-     PRICE: <h6 ${obj.itemObject.price}"></h6>
-     <div class="mt-1 d-flex flex-wrap">
-       <div class="d-flex flex-column">
-         <div class="mt-5">
-           <i id="edit-item-btn--${obj.itemObject.firebaseKey}" class="btn btn-info"></i>
-           <i id="delete-item-btn--${obj.itemObject.firebaseKey}" class="btn btn-danger"></i>
-         </div>
-       </div>
-    </div>    
+  <h5 id="orderTotal">Total:${sum()} </h5>
   </div>`;
 
-  const btnString = '<button class="btn btn-success btn-lg mb-4" id="add-item-btn">Add Item</button>';
+  const btnString = `<button class="btn btn-success btn-lg mb-4" id="add-item-btn">Add Item</button><button class="btn btn-info btn-lg mb-4" id="payment-btn--${obj.orderObject.firebaseKey}">Go To Payment</button>`;
+
+  showItems(obj.orderItemsArray);
+  renderToDOM('#form-container', totalString);
   renderToDOM('#view-details', btnString);
-
-  const btnString2 = '<button class="btn btn-info btn-lg mb-4" id="payment-btn">Go To Payment</button>';
-  renderToDOM('#view-details', btnString2);
-
-  showItems(obj.ordersItemsArray, '#view-details');
-  renderToDOM('#view-details', domString);
 };
 
 export default viewOrderDetails;

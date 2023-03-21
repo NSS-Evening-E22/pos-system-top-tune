@@ -1,8 +1,11 @@
 import { showOrders } from '../pages/orders';
 import { getOrders, deleteOrder, getSingleOrder } from '../api/orderData';
-import getSingleItem from '../api/itemData';
+import { getSingleItem } from '../api/itemData';
 import closeOrderForm from '../components/forms/closeOrderForm';
 import addItemForm from '../components/forms/addItemForm';
+import addOrderForm from '../components/forms/addOrderForm';
+import { getOrderDetails } from '../api/meregedData';
+import viewOrderDetails from '../pages/viewOrderDetails';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -32,6 +35,32 @@ const domEvents = () => {
       console.warn('EDIT ITEM', e.target.id);
       const [, firebaseKey] = e.target.id.split('--');
       getSingleItem(firebaseKey).then((itemObj) => addItemForm(itemObj));
+    }
+
+    // click event for editing order
+    if (e.target.id.includes('edit-order-btn')) {
+      console.warn('EDIT order', e.target.id);
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleOrder(firebaseKey).then((orderObj) => addOrderForm(orderObj));
+    }
+
+    // click event to show orders on Dom
+    if (e.target.id.includes('viewOrder-btn')) {
+      console.warn('clicked view order');
+      getOrders().then(showOrders);
+    }
+
+    // click event to show order form
+    if (e.target.id.includes('createOrder-btn')) {
+      console.warn('ADD ORDER');
+      addOrderForm();
+    }
+
+    // click event to show order details
+    if (e.target.id.includes('view-order-details-btn')) {
+      console.warn('clicked view details');
+      const [, firebaseKey] = e.target.id.split('--');
+      getOrderDetails(firebaseKey).then(viewOrderDetails);
     }
   });
 };
