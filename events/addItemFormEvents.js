@@ -1,31 +1,34 @@
 import { createItem, getOrderItems, updateItem } from '../api/itemData';
 import addItemForm from '../components/forms/addItemForm';
-import viewOrderItems from '../pages/items';
+import viewOrderDetails from '../pages/viewOrderDetails';
 
 const addItemFormEvents = () => {
-  document.querySelector('#main-container').addEventListener('click', (e) => {
+  document.querySelector('#view-details').addEventListener('click', (e) => {
     e.preventDefault();
     // CLICK EVENT FOR SHOWING FORM FOR ADDING AN ITEM
     if (e.target.id.includes('add-item-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
       console.warn('ADD ITEM');
-      addItemForm();
+      addItemForm(firebaseKey);
     }
   });
 
-  document.querySelector('#main-container').addEventListener('submit', (e) => {
+  document.querySelector('#form-container').addEventListener('click', (e) => {
     e.preventDefault();
 
     if (e.target.id.includes('submit-item')) {
+      const [, orderFirebaseKey] = e.target.id.split('--');
       const payload = {
         itemName: document.querySelector('#itemName').value,
-        price: document.querySelector('#price').value
+        price: Number(document.querySelector('#price').value),
+        orderId: orderFirebaseKey,
       };
 
       createItem(payload).then(({ name }) => {
         const patchPayLoad = { firebaseKey: name };
 
         updateItem(patchPayLoad).then(() => {
-          getOrderItems().then(viewOrderItems);
+          getOrderItems().then(viewOrderDetails);
         });
       });
     }
@@ -39,7 +42,7 @@ const addItemFormEvents = () => {
       };
       console.warn('CLICKED UPDATE ITEM', e.target.id);
       updateItem(payload).then(() => {
-        getOrderItems().then(viewOrderItems);
+        getOrderItems().then(viewOrderDetails);
       });
     }
   });

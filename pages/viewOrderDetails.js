@@ -24,7 +24,7 @@ const viewOrderDetails = (obj) => {
   <h5 id="orderTotal">Total:${sum()} </h5>
   </div>`;
 
-  const btnString = `<button class="btn btn-success btn-lg mb-4" id="add-item-btn">Add Item</button><button class="btn btn-info btn-lg mb-4" id="payment-btn--${obj.orderObject.firebaseKey}">Go To Payment</button>`;
+  const btnString = `<button class="btn btn-success btn-lg mb-4" id="add-item-btn--${obj.orderObject.firebaseKey}">Add Item</button><button class="btn btn-info btn-lg mb-4" id="payment-btn--${obj.orderObject.firebaseKey}">Go To Payment</button>`;
 
   showItems(obj.orderItemsArray);
   renderToDOM('#form-container', totalString);

@@ -1,11 +1,12 @@
 import { showOrders } from '../pages/orders';
 import { getOrders, deleteOrder, getSingleOrder } from '../api/orderData';
-import { getSingleItem } from '../api/itemData';
+import { deleteSingleItem, getOrderItems, getSingleItem } from '../api/itemData';
 import closeOrderForm from '../components/forms/closeOrderForm';
-import addItemForm from '../components/forms/addItemForm';
+// import addItemForm from '../components/forms/addItemForm';
 import addOrderForm from '../components/forms/addOrderForm';
 import { getOrderDetails } from '../api/meregedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
+import addItemForm from '../components/forms/addItemForm';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -34,6 +35,7 @@ const domEvents = () => {
     if (e.target.id.includes('edit-item-btn')) {
       console.warn('EDIT ITEM', e.target.id);
       const [, firebaseKey] = e.target.id.split('--');
+      console.warn('this is the firebaseKey', firebaseKey);
       getSingleItem(firebaseKey).then((itemObj) => addItemForm(itemObj));
     }
 
@@ -61,6 +63,18 @@ const domEvents = () => {
       console.warn('clicked view details');
       const [, firebaseKey] = e.target.id.split('--');
       getOrderDetails(firebaseKey).then(viewOrderDetails);
+    }
+
+    if (e.target.id.includes('delete-item-btn')) {
+      // eslint-disable-next-line no-alert
+      if (window.confirm('Want to delete?')) {
+        console.warn('CLICKED DELETE ITEM', e.target.id);
+        const [, firebaseKey] = e.target.id.split('--');
+
+        deleteSingleItem(firebaseKey).then(() => {
+          getOrderItems().then(viewOrderDetails);
+        });
+      }
     }
   });
 };

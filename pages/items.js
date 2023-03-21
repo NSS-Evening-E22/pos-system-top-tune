@@ -3,7 +3,7 @@ import renderToDom from '../utils/renderToDom';
 
 const showItems = (array) => {
   clearDom();
-  console.warn('test', array);
+  console.warn('item test', array);
   let domString = '';
   array.forEach((item) => {
     domString += `

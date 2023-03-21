@@ -9,7 +9,7 @@ const closeOrderFormEvents = () => {
       console.warn('CLICKED CLOSE ORDER', e.target.id);
       console.warn(firebaseKey);
       const payload = {
-        tip: document.querySelector('#tip-amt').value,
+        tip: Number(document.querySelector('#tip-amt').value),
         paymentType: document.querySelector('#paymentType-input').value,
         orderStatus: true,
         firebaseKey,
