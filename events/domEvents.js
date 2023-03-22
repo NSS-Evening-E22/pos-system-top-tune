@@ -1,11 +1,12 @@
 import { showOrders } from '../pages/orders';
-import { getOrders, getSingleOrder } from '../api/orderData';
+import { getClosedOrders, getOrders, getSingleOrder } from '../api/orderData';
 import { deleteSingleItem, getOrderItems, getSingleItem } from '../api/itemData';
 import closeOrderForm from '../components/forms/closeOrderForm';
 import addOrderForm from '../components/forms/addOrderForm';
 import { deleteOrderItemRelationship, getOrderDetails } from '../api/meregedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
 import { editItemForm } from '../components/forms/addItemForm';
+import revPage from '../pages/revPage';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -74,6 +75,11 @@ const domEvents = () => {
           getOrderItems().then(viewOrderDetails);
         });
       }
+    }
+
+    if (e.target.id.includes('viewRev-btn')) {
+      console.warn('clicked view Rev');
+      getClosedOrders().then((obj) => (revPage(obj)));
     }
   });
 };

@@ -10,11 +10,9 @@ const closeOrderForm = (obj) => {
         <label for="paymentType-select-input" class="form-label">Payment Type</label>
         <select id="paymentType-input" class="form-select" aria-label="paymentType select">
           <option selected>Select Payment Type</option>
-          <option value="cash-paymentType"}">Cash</option>
-          <option value="credit-paymentType"}">Credit Card</option>
-          <option value="dedit-paymentType"}">Dedit Card</option>
-          <option value="check-paymentType"}">Check</option>
-          <option value="mobile-paymentType"}">Mobile</option>
+          <option value="Cash"}">Cash</option>
+          <option value="Credit"}">Credit Card</option>
+          <option value="Mobile"}">Mobile</option>
         </select>
       </div>
       <div class="form-group">

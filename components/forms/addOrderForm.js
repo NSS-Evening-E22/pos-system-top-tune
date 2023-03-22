@@ -21,9 +21,8 @@ const addOrderForm = (obj = {}) => {
         <label for="orderType-select-input" class="form-label">Order Type</label>
         <select id="orderType-select-input" class="form-select" aria-label="orderType select">
           <option selected>Select an Order Type</option>
-          <option value="Cash">Cash</option>
-          <option value="Credit">Credit Card</option>
-          <option value="Mobile">Mobile</option>
+          <option value="Call In">Call In</option>
+          <option value="In Person">In Person</option>
         </select>
         </div>
         <button type="submit" id="${obj.firebaseKey ? `update-order--${obj.firebaseKey}` : 'submit-order'}" class="btn btn-primary">Submit Order</button>

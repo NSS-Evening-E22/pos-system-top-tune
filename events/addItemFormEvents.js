@@ -1,6 +1,9 @@
-import { createItem, getOrderItems, updateItem } from '../api/itemData';
+import { createItem, updateItem } from '../api/itemData';
+// import { getOrderDetails } from '../api/meregedData';
+import { getOrders } from '../api/orderData';
 import { addItemForm } from '../components/forms/addItemForm';
-import viewOrderDetails from '../pages/viewOrderDetails';
+import { showOrders } from '../pages/orders';
+// import viewOrderDetails from '../pages/viewOrderDetails';
 
 const addItemFormEvents = () => {
   document.querySelector('#view-details').addEventListener('click', (e) => {
@@ -28,7 +31,7 @@ const addItemFormEvents = () => {
         const patchPayLoad = { firebaseKey: name };
 
         updateItem(patchPayLoad).then(() => {
-          getOrderItems(orderFirebaseKey).then(viewOrderDetails);
+          getOrders().then(showOrders);
         });
       });
     }
@@ -42,7 +45,7 @@ const addItemFormEvents = () => {
       };
       console.warn('CLICKED UPDATE ITEM', e.target.id);
       updateItem(payload).then(() => {
-        getOrderItems(firebaseKey).then(viewOrderDetails);
+        getOrders().then(showOrders);
       });
     }
   });

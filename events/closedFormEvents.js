@@ -13,6 +13,7 @@ const closeOrderFormEvents = () => {
         paymentType: document.querySelector('#paymentType-input').value,
         orderStatus: true,
         firebaseKey,
+        timeOrderClosed: new Date(Date.now()).toLocaleString()
       };
 
       updateOrder(payload).then(() => {
