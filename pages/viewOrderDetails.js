@@ -26,9 +26,14 @@ const viewOrderDetails = (obj) => {
 
   const btnString = `<button class="btn btn-success btn-lg mb-4" id="add-item-btn--${obj.orderObject.firebaseKey}">Add Item</button><button class="btn btn-info btn-lg mb-4" id="payment-btn--${obj.orderObject.firebaseKey}">Go To Payment</button>`;
 
-  showItems(obj.orderItemsArray);
-  renderToDOM('#form-container', totalString);
-  renderToDOM('#view-details', btnString);
+  if (obj.orderObject.orderStatus === false) {
+    showItems(obj.orderItemsArray);
+    renderToDOM('#view-details', btnString);
+    renderToDOM('#form-container', totalString);
+  } else {
+    showItems(obj.orderItemsArray);
+    renderToDOM('#form-container', totalString);
+  }
 };
 
 export default viewOrderDetails;
