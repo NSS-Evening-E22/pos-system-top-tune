@@ -1,12 +1,11 @@
 import { showOrders } from '../pages/orders';
-import { getOrders, deleteOrder, getSingleOrder } from '../api/orderData';
+import { getOrders, getSingleOrder } from '../api/orderData';
 import { deleteSingleItem, getOrderItems, getSingleItem } from '../api/itemData';
 import closeOrderForm from '../components/forms/closeOrderForm';
-// import addItemForm from '../components/forms/addItemForm';
 import addOrderForm from '../components/forms/addOrderForm';
-import { getOrderDetails } from '../api/meregedData';
+import { deleteOrderItemRelationship, getOrderDetails } from '../api/meregedData';
 import viewOrderDetails from '../pages/viewOrderDetails';
-import addItemForm from '../components/forms/addItemForm';
+import { editItemForm } from '../components/forms/addItemForm';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -16,7 +15,7 @@ const domEvents = () => {
         console.warn('CLICKED DELETE ORDER', e.target.id);
         const [, firebaseKey] = e.target.id.split('--');
 
-        deleteOrder(firebaseKey).then(() => {
+        deleteOrderItemRelationship(firebaseKey).then(() => {
           getOrders().then(showOrders);
         });
       }
@@ -36,7 +35,7 @@ const domEvents = () => {
       console.warn('EDIT ITEM', e.target.id);
       const [, firebaseKey] = e.target.id.split('--');
       console.warn('this is the firebaseKey', firebaseKey);
-      getSingleItem(firebaseKey).then((itemObj) => addItemForm(itemObj));
+      getSingleItem(firebaseKey).then((itemObj) => editItemForm(itemObj));
     }
 
     // click event for editing order

@@ -6,12 +6,12 @@ import showItems from './items';
 const viewOrderDetails = (obj) => {
   clearDom();
   console.warn('this is the items object', obj);
-  console.warn('test key', obj.orderObject.firebaseKey);
+  // console.warn('test key', obj.orderObject.firebaseKey);
   const arr = [];
 
   obj.orderItemsArray.forEach((item) => arr.push(item.price));
 
-  console.warn('this is the arr', arr);
+  // console.warn('this is the arr', arr);
   function sum() {
     if (arr.length === 0) {
       return 0;
