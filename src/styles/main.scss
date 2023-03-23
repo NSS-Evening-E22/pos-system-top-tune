@@ -4,21 +4,27 @@
 
 body {
   background-color: rgb(29, 34, 35);
-  color: rgb(0, 0, 0);
+  color: rgb(45, 49, 50);
   text-align: center;
   margin-top: 100px;
   background-image: url('https://gd-hbimg.huaban.com/32aadfcd70ed919289d904833ae7a95895165d35ffcf1-mPfkjC_fw1200webp');
   font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
+
+// order card
 #order-card{
   display: flex;
   float: left;
-  justify-content: center;
-  height: 400px;
-  width: 325px;
-  margin: 5px;
+  justify-content: space-around;
+  height: 350px;
+  width: 300px;
+  margin: 10px;
+  padding-top: 10px;
+  background-color:  rgb(249, 243, 236);
+  line-height: 1.5ch;
   }
 
+// home page button and welcome
 #display-3{
   margin-top: 300px;
   color:antiquewhite;
@@ -30,3 +36,15 @@ body {
 #viewOrder-btn{
   margin-top: 150px;
 }
+
+// form
+#form-container{
+  width: 55%;
+  margin:auto;
+  justify-content: center;
+  color: white;
+  padding-top: 100px;
+  line-height: 0.5in;
+}
+
+// item card
