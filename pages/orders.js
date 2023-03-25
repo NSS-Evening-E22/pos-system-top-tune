@@ -12,7 +12,7 @@ const showOrders = (array) => {
   let domString = '';
   array.forEach((order) => {
     domString += `
-      <div class="card d-flex" style="width: 19rem,">
+      <div class="card" id="order-card">
         <div class="card-body">
           <h2 class="card-title">${order.orderName}</h2>
           <br>
@@ -25,9 +25,9 @@ const showOrders = (array) => {
           <p class="card-type">Order Type: ${order.orderType}</p>
         </div>
           <div id="cards-btn">
-            <button class="btn btn-success" id="view-order-details-btn--${order.firebaseKey}">Details</button>
-            <button id="edit-order-btn--${order.firebaseKey}" class="btn btn-info">Edit</i>
-            <button id="delete-order-btn--${order.firebaseKey}" class="btn btn-danger">Delete</button>
+            <button class="btn btn-outline-warning" id="view-order-details-btn--${order.firebaseKey}">Details</button>
+            <button class="btn btn-warning" id="edit-order-btn--${order.firebaseKey}">Edit</button>
+            <button class="btn btn-warning" id="delete-order-btn--${order.firebaseKey}">Delete</button>
           </div>
       </div>`;
   });

@@ -24,6 +24,7 @@ const domEvents = () => {
     // CLICK EVENT FOR SHOWING FORM FOR CLOSING ORDER
     if (e.target.id.includes('payment-btn')) {
       console.warn('clicked closed order');
+
       if (e.target.id.split('--')) {
         const [, firebaseKey] = e.target.id.split('--');
 

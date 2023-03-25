@@ -14,7 +14,7 @@ const addItemForm = (orderFirebaseKey) => {
         <label for="item-price">Item Price</label>
         <input type="text" class="form-control" id="price" required>
       </div>  
-      <button type="submit" id="submit-item--${orderFirebaseKey}" class="btn btn-primary">Add/Edit Item</button>
+      <button type="submit" id="submit-item--${orderFirebaseKey}" class="btn btn-warning mt-4">Add/Edit Item</button>
     </form>`;
 
   renderToDOM('#form-container', domString);
@@ -33,7 +33,7 @@ const editItemForm = (obj = {}) => {
         <label for="item-price">Item Price</label>
         <input type="text" class="form-control" id="price" value="${obj.price || ''}" required>
       </div>  
-      <button type="submit" id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : 'submit-item'}" class="btn btn-primary">Add/Edit Item</button>
+      <button type="submit" id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : 'submit-item'}" class="btn btn-warning mt-4">Add/Edit Item</button>
     </form>`;
 
   renderToDOM('#form-container', domString);

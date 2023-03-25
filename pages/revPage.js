@@ -41,17 +41,17 @@ const revPage = (obj) => {
   const creditOrders = obj.filter((Item) => Item.paymentType === 'Credit');
 
   const revString = `
-    <h1>Revenue</h1>
-    <h3>Total Revenue: ${sumOfRev()}</h3>
+    <h1 style= "margin:50px">Revenue</h1>
+    <h3 style= "margin:50px">Total Revenue: ${sumOfRev()}</h3>
 
     <div id="order-types">
      <p>Total Tips: ${sumOfTip()}</p>
      <p>Total Call In Orders: ${callIn.length}</p>
-     <p>Total In Person Orders: ${inPerson.length}</p>
+     <p style= "margin-bottom:50px">Total In Person Orders: ${inPerson.length}</p>
     </div>
 
     <div id="payment-types">
-      <h4>Payment Types</h4>
+      <h4 style= "margin-bottom:20px">Payment Types</h4>
       <p>Total Credit: ${creditOrders.length}</p>
       <p>Total Cash: ${cashOrders.length}</p>
       <p>Total Mobile: ${mobileOrders.length}</p>

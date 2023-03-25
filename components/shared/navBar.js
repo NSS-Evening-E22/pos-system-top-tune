@@ -2,9 +2,9 @@ import renderToDOM from '../../utils/renderToDom';
 
 const navBar = () => {
   const domString = `
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <img class="navbar-brand title" src="https://github.com/NSS-Evening-E22/pos-system-top-tune/raw/main/instructions/hhpw-record.png" alt="" height="56"></image>
+        <img class="navbar-brand title" src="https://github.com/NSS-Evening-E22/pos-system-top-tune/raw/main/instructions/hhpw-record.png" alt="" height="100"></image>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
