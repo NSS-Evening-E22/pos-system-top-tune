@@ -12,6 +12,7 @@ const addOrderFormEvents = () => {
         phone: document.querySelector('#phone').value,
         email: document.querySelector('#email').value,
         orderType: document.querySelector('#orderType-select-input').value,
+        price: 0,
         orderStatus: false,
         timestamp: new Date(Date.now()).toLocaleString()
       };
@@ -32,6 +33,7 @@ const addOrderFormEvents = () => {
         phone: document.querySelector('#phone').value,
         email: document.querySelector('#email').value,
         orderType: document.querySelector('#orderType-select-input').value,
+        price: 0,
         firebaseKey,
         timestamp: new Date(Date.now()).toLocaleString()
       };
